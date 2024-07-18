@@ -1,5 +1,4 @@
 import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
 import { ButtonEmpty, ButtonPrimary, ButtonSecondary } from 'components/Button'
 import { LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -23,6 +22,7 @@ import { useTokenBalance } from 'state/connection/hooks'
 import styled from 'styled-components'
 import { currencyId } from 'utils/currencyId'
 import { unwrappedToken } from 'utils/unwrappedToken'
+import { Pair } from 'utils/v2-sdk/pair'
 import { FixedHeightRow } from '.'
 
 const StyledPositionCard = styled(LightCard)<{ bgColor: any }>`

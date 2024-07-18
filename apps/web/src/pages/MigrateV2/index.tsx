@@ -1,7 +1,6 @@
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256, pack } from '@ethersproject/solidity'
 import { Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
 import { LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import MigrateSushiPositionCard from 'components/PositionCard/Sushi'
@@ -23,6 +22,7 @@ import { Text } from 'rebass'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
 import styled, { useTheme } from 'styled-components'
 import { BackArrowLink, StyledInternalLink, ThemedText } from 'theme/components'
+import { Pair } from 'utils/v2-sdk/pair'
 
 export const MigrateHeader = styled(ThemedText.H1Small)`
   font-weight: 535;

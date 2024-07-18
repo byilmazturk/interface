@@ -1,7 +1,6 @@
 import { Interface } from '@ethersproject/abi'
 import StakingRewardsJSON from '@uniswap/liquidity-staker/build/StakingRewards.json'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
 import { DAI, UNI, USDC_MAINNET, USDT, WBTC, WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { useAccount } from 'hooks/useAccount'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
@@ -10,6 +9,7 @@ import { NEVER_RELOAD, useMultipleContractSingleData } from 'lib/hooks/multicall
 import { useMemo } from 'react'
 import { UniverseChainId } from 'uniswap/src/types/chains'
 import { logger } from 'utilities/src/logger/logger'
+import { Pair } from 'utils/v2-sdk/pair'
 
 const STAKING_REWARDS_INTERFACE = new Interface(StakingRewardsJSON.abi)
 

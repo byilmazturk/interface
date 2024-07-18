@@ -7,7 +7,6 @@ import {
   LiquiditySource,
 } from '@uniswap/analytics-events'
 import { Currency, CurrencyAmount, Percent } from '@uniswap/sdk-core'
-import { computePairAddress } from '@uniswap/v2-sdk'
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { ButtonError, ButtonLight, ButtonPrimary } from 'components/Button'
 import { BlueCard, LightCard } from 'components/Card'
@@ -57,6 +56,7 @@ import { calculateGasMargin } from 'utils/calculateGasMargin'
 import { calculateSlippageAmount } from 'utils/calculateSlippageAmount'
 import { currencyId } from 'utils/currencyId'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
+import { computePairAddress } from 'utils/v2-sdk/pair'
 
 const DEFAULT_ADD_V2_SLIPPAGE_TOLERANCE = new Percent(50, 10_000)
 
