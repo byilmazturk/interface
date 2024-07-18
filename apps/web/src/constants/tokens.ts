@@ -391,7 +391,8 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ),
   [UniverseChainId.Sepolia]: new Token(
     UniverseChainId.Sepolia,
-    '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
+    //'0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
+    '0x5f207d42F869fd1c71d7f0f81a2A67Fc20FF7323',
     18,
     'WETH',
     'Wrapped Ether',

@@ -1,5 +1,4 @@
 import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
 import { ButtonEmpty, ButtonPrimary, ButtonSecondary } from 'components/Button'
 import { GrayCard, LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -24,6 +23,7 @@ import styled from 'styled-components'
 import { ExternalLink, ThemedText } from 'theme/components'
 import { currencyId } from 'utils/currencyId'
 import { unwrappedToken } from 'utils/unwrappedToken'
+import { Pair } from 'utils/v2-sdk/pair'
 
 export const FixedHeightRow = styled(RowBetween)`
   height: 24px;

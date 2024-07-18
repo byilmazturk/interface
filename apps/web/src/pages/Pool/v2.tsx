@@ -1,5 +1,5 @@
 import { InterfacePageName } from '@uniswap/analytics-events'
-import { Pair } from '@uniswap/v2-sdk'
+import { Token } from '@uniswap/sdk-core'
 import { ButtonOutlined, ButtonPrimary, ButtonSecondary } from 'components/Button'
 import Card from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -27,6 +27,8 @@ import styled, { useTheme } from 'styled-components'
 import { ExternalLink, HideSmall, ThemedText } from 'theme/components'
 import { ProtocolVersion } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import Trace from 'uniswap/src/features/telemetry/Trace'
+import { UniverseChainId } from 'uniswap/src/types/chains'
+import { Pair } from 'utils/v2-sdk/pair'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -95,6 +97,19 @@ export default function Pool() {
   if (!networkSupportsV2) {
     trackedTokenPairs = []
   }
+
+  // TODO-CAN: fetch token pairs from graphql
+
+  const WETH = new Token(UniverseChainId.Sepolia, '0x5f207d42F869fd1c71d7f0f81a2A67Fc20FF7323', 18, 'WETH', 'WETH')
+  const PXA = new Token(
+    UniverseChainId.Sepolia,
+    '0x01d76aC8D036400596Fed9A797A989fa0a8cE79d',
+    9,
+    'PXA',
+    'Project X Alpha',
+  )
+  trackedTokenPairs = [[WETH, PXA]]
+
   const tokenPairsWithLiquidityTokens = useMemo(
     () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
     [trackedTokenPairs],

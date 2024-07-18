@@ -7,8 +7,7 @@ import {
   LiquidityEventName,
   LiquiditySource,
 } from '@uniswap/analytics-events'
-import { Currency, Percent, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { computePairAddress } from '@uniswap/v2-sdk'
+import { Currency, Percent } from '@uniswap/sdk-core'
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { ButtonConfirmed, ButtonError, ButtonLight, ButtonPrimary } from 'components/Button'
 import { BlueCard, LightCard } from 'components/Card'
@@ -24,6 +23,7 @@ import TransactionConfirmationModal, { ConfirmationModalContent } from 'componen
 import { V2Unsupported } from 'components/V2Unsupported'
 import { Dots } from 'components/swap/styled'
 import { useIsSupportedChainId } from 'constants/chains'
+import { V2_FACTORY_ADDRESSES } from 'constants/sdk-core/addresses'
 import { WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { useCurrency } from 'hooks/Tokens'
 import { useAccount } from 'hooks/useAccount'
@@ -56,6 +56,7 @@ import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { calculateGasMargin } from 'utils/calculateGasMargin'
 import { calculateSlippageAmount } from 'utils/calculateSlippageAmount'
 import { currencyId } from 'utils/currencyId'
+import { computePairAddress } from 'utils/v2-sdk/pair'
 
 const DEFAULT_REMOVE_LIQUIDITY_SLIPPAGE_TOLERANCE = new Percent(50, 10_000)
 

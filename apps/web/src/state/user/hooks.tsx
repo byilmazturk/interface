@@ -1,9 +1,9 @@
-import { Percent, Token, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { Pair, computePairAddress } from '@uniswap/v2-sdk'
+import { Percent, Token } from '@uniswap/sdk-core'
 import { L2_CHAIN_IDS, chainIdToBackendChain, useSupportedChainId } from 'constants/chains'
 import { SupportedLocale } from 'constants/locales'
 import { L2_DEADLINE_FROM_NOW } from 'constants/misc'
 import { BASES_TO_TRACK_LIQUIDITY_FOR, PINNED_PAIRS } from 'constants/routing'
+import { V2_FACTORY_ADDRESSES } from 'constants/sdk-core/addresses'
 import { gqlToCurrency } from 'graphql/data/util'
 import { useAccount } from 'hooks/useAccount'
 import JSBI from 'jsbi'
@@ -26,6 +26,7 @@ import {
   TokenSortableField,
   useTopTokensQuery,
 } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
+import { Pair, computePairAddress } from 'utils/v2-sdk/pair'
 
 export function useUserLocale(): SupportedLocale | null {
   return useAppSelector((state) => state.user.userLocale)
@@ -189,13 +190,9 @@ export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
     throw new Error('No V2 factory address on this chain')
   }
 
-  return new Token(
-    tokenA.chainId,
-    computePairAddress({ factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId], tokenA, tokenB }),
-    18,
-    'UNI-V2',
-    'Uniswap V2',
-  )
+  const pairAddress = computePairAddress({ factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId], tokenA, tokenB })
+
+  return new Token(tokenA.chainId, pairAddress, 18, 'Goth-V2', 'GothSwap')
 }
 
 /**

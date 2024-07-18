@@ -1,7 +1,7 @@
 import { MixedRouteSDK } from '@uniswap/router-sdk'
 import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import { UnsignedV2DutchOrderInfo } from '@uniswap/uniswapx-sdk'
-import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
+import { Route as V2Route } from '@uniswap/v2-sdk'
 import { FeeAmount, Pool, Route as V3Route } from '@uniswap/v3-sdk'
 import { BigNumber } from 'ethers'
 import { NativeCurrency } from 'uniswap/src/features/tokens/NativeCurrency'
@@ -34,6 +34,7 @@ import {
 import { CurrencyField, TradeProtocolPreference } from 'wallet/src/features/transactions/transactionState/types'
 import { TransactionStatus } from 'wallet/src/features/transactions/types'
 import { ValueType, getCurrencyAmount } from 'wallet/src/utils/getCurrencyAmount'
+import { Pair } from '../../../../../../../../apps/web/src/utils/v2-sdk/pair'
 
 const NATIVE_ADDRESS_FOR_TRADING_API = '0x0000000000000000000000000000000000000000'
 
